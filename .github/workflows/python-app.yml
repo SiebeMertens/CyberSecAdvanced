@@ -40,7 +40,10 @@ jobs:
       - name: Dependency scanning
         uses: actions/dependency-review-action@v2
       - name: Secret scanning
-        uses: trufflesecurity/trufflehog-actions-scan@v2
+        uses: trufflesecurity/trufflehog@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          scan: .
       - name: Upload logs on failure
         if: failure()
         uses: actions/upload-artifact@v3
