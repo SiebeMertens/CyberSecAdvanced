@@ -41,6 +41,12 @@ jobs:
         uses: actions/dependency-review-action@v2
       - name: Secret scanning
         uses: trufflesecurity/trufflehog@v3
+      - name: Upload logs on failure
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: logs
+          path: ./logs
       - name: Fail on warnings
         if: failure()
         run: exit 1
