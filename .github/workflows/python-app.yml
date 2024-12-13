@@ -40,7 +40,7 @@ jobs:
       - name: Dependency scanning
         uses: actions/dependency-review-action@v2
       - name: Secret scanning
-        uses: trufflesecurity/trufflehog-action@v3
+        uses: trufflesecurity/trufflehog-actions-scan@v2
       - name: Upload logs on failure
         if: failure()
         uses: actions/upload-artifact@v3
